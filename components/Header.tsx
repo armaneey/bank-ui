@@ -1,20 +1,28 @@
 "use client";
 
-import { Search, Bell, User } from "lucide-react";
+import { Search, Bell, User, Menu } from "lucide-react";
 
 interface HeaderProps {
   title?: string;
+  isMobileMenuOpen?: boolean;
+  setIsMobileMenuOpen?: (open: boolean) => void;
 }
 
-export default function Header({ title = "Overview" }: HeaderProps) {
+export default function Header({ title = "Overview", isMobileMenuOpen, setIsMobileMenuOpen }: HeaderProps) {
   return (
-    <header className="bg-white border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+    <header className="bg-white border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between sticky top-0 z-30">
       <div className="flex items-center gap-4">
+        <button
+          onClick={() => setIsMobileMenuOpen?.(true)}
+          className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+        >
+          <Menu size={24} />
+        </button>
         <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">{title}</h2>
       </div>
 
       <div className="flex items-center gap-3 sm:gap-6">
-      
+
         <div className="relative hidden sm:block">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
           <input

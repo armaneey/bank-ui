@@ -1,5 +1,4 @@
 "use client";
-
 import { Paper, Title, Text, Badge, Avatar, Button } from "@mantine/core";
 import { Download, MoreVertical } from "lucide-react";
 

@@ -5,15 +5,15 @@ import { Plus } from "lucide-react";
 
 export default function MyCreditCards() {
   return (
-    <Paper shadow="sm" radius="lg" p="md" withBorder>
-      <div className="flex items-center justify-between mb-6">
+    <Paper shadow="sm" radius="lg" p="xs" withBorder>
+      <div className="flex items-center justify-between mb-3">
         <Title order={3}>My Cards</Title>
         <Button variant="light" size="sm" leftSection={<Plus size={16} />}>
           Add Card
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <div className="bg-linear-to-br from-blue-600 to-blue-800 rounded-2xl p-6 text-white h-48 flex flex-col justify-between">
           <div className="flex justify-between items-start">
             <div>

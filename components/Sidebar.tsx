@@ -1,17 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { 
-  LayoutDashboard, 
-  ArrowLeftRight, 
-  Wallet, 
-  TrendingUp, 
-  CreditCard, 
-  Landmark, 
-  Settings, 
+import {
+  LayoutDashboard,
+  ArrowLeftRight,
+  Wallet,
+  TrendingUp,
+  CreditCard,
+  Landmark,
+  Settings,
   Crown,
   User,
-  Menu,
   X
 } from "lucide-react";
 import Link from "next/link";
@@ -40,25 +38,15 @@ export default function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }: Sideb
 
   return (
     <>
-      
-      <button
-        onClick={() => setIsMobileMenuOpen(true)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-md border border-gray-200"
-      >
-        <Menu size={24} />
-      </button>
-
-      
       {isMobileMenuOpen && (
         <div
           className="lg:hidden fixed inset-0 bg-black/50 z-40"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
-
       <aside
-        className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 p-6 flex flex-col transform transition-transform duration-300 ease-in-out ${
-          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+        className={`fixed inset-y-0 left-0 z-50 w-64 h-screen bg-white border-r border-gray-200 p-6 flex flex-col transform transition-transform duration-300 ease-in-out lg:sticky lg:top-0 lg:h-screen lg:translate-x-0 ${
+          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex items-center justify-between mb-8">

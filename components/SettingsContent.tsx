@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Paper, Tabs, TextInput, Switch, Button, Title, Text } from "@mantine/core";
+import { Paper, Tabs, TextInput, Switch, Button, Title, Text, Avatar, FileInput } from "@mantine/core";
+import { Camera } from "lucide-react";
 
 export default function SettingsContent() {
   const [activeTab, setActiveTab] = useState("preferences");
@@ -18,14 +19,43 @@ export default function SettingsContent() {
         <Tabs.Panel value="edit-profile" pt="md">
           <div className="space-y-6">
             <div>
+              <Title order={4} mb={4}>Profile Picture</Title>
+              <div className="flex items-center gap-6">
+                <Avatar size={100} radius="xl" src="https://i.pravatar.cc/150?img=12" alt="Profile" />
+                <div className="space-y-3">
+                  <FileInput
+                    label="Upload new picture"
+                    placeholder="Click to upload"
+                    accept="image/png,image/jpeg"
+                    leftSection={<Camera size={16} />}
+                  />
+                  <Text size="xs" c="dimmed">Recommended: Square image, at least 200x200px</Text>
+                </div>
+              </div>
+            </div>
+
+            <div>
               <Title order={4} mb={4}>Personal Information</Title>
               <div className="grid grid-cols-2 gap-4">
                 <TextInput label="First Name" defaultValue="Eddy" />
                 <TextInput label="Last Name" defaultValue="Cusuma" />
                 <TextInput label="Email" defaultValue="eddy@example.com" />
                 <TextInput label="Phone" defaultValue="+1 234 567 890" />
+                <TextInput label="Date of Birth" placeholder="MM/DD/YYYY" />
+                <TextInput label="Gender" defaultValue="Male" />
               </div>
             </div>
+
+            <div>
+              <Title order={4} mb={4}>Address Information</Title>
+              <div className="grid grid-cols-2 gap-4">
+                <TextInput label="Permanent Address" className="col-span-2" defaultValue="123 Main Street, Apt 4B" />
+                <TextInput label="City" defaultValue="New York" />
+                <TextInput label="Country" defaultValue="United States" />
+                <TextInput label="Postal Code" defaultValue="10001" />
+              </div>
+            </div>
+
             <div className="flex justify-end">
               <Button>Save Changes</Button>
             </div>
